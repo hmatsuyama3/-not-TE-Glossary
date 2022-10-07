@@ -1,8 +1,7 @@
 package dao;
 
 
-import model.ModuleTag;
-import model.UnitTag;
+import model.Module;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public interface ModuleTagDao {
      *
      * @return List of all ModuleTag objects, or an empty list if no tags are found.
      */
-    List<ModuleTag> getAll();
+    List<Module> getAll();
 
     /**
      * Get a tag from the datastore with the specified id.
@@ -24,6 +23,6 @@ public interface ModuleTagDao {
      * @param moduleId The id of the Module Tag to return.
      * @return The matching Tag object, or null if the moduleId is not found.
      */
-    ModuleTag getById(int moduleId);
+    Module getById(int moduleId);
 
 }

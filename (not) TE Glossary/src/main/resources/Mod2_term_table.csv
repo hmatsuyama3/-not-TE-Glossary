@@ -1,0 +1,180 @@
+Term,Definition
+Database,An organized collection of data that allows for quick retrieval and updates
+Relational Database,A type of database with a structure that allows users to identify and access data in relation to another piece of data in the database.
+Relational Database Management System (RDBMS),"A program that allows you to create, update, and administer a relationsal database"
+Structured Query Language (SQL),A programming language used to communicate with data stored in an RDBMS
+Data Manipulation Language (DML),A type of SQL statement that deals with the manipulation of data present in the database
+Data Definition Language (DDL),"A type of SQL statement that is used to create/modify/delete database structures, but NOT data"
+Data Control Language (DCL),"A type of SQL statement that mainly deals with the rights, permissions, and other controls of the database system"
+SELECT,A DML statement that returns all the values in the specified column from the named table
+SELECT DISTINCT,"SELECT, but only the unique values from the table"
+WHERE,"If you want to be more specific about what data is returned from your SELECT statement, set a conditional with WHERE."
+ORDER BY,A clause used to order the results returned from the database
+LIMIT,A clause used to retrieve only a certain number of rows
+Aggregate Function,"A function that performs a calculation on a set of values, and returns a single value. Except fo COUNT(), aggregate functions ignore null values."
+COUNT(),Returns the number of rows that matches a specified criterion
+AVG(),Retuns the average value of a numeric column
+SUM(),Returns the total sum of a numeric column
+MIN(),Returns the smallest value in the numeric column
+MAX(),Returns the largest value in a numeric column
+GROUP BY,"Groups rows that have teh same values into summary rows, ex ""find the number of customers in each country"""
+HAVING,"WHERE, but for aggregate functions. **Not covered in LMS"
+Primary Key (PK),The column (or a combination or columns) in a table in an RDBMS that contain values that uniquely identify each row in the table
+Foreign Key (FK),"A column (or a combination of columns) that is used to establish and enforce a link between the data in two tables to control the data that can be stored in the foreign key table. If a PK in one table is referenced by another, it becomes a foreign key in the second table."
+Cardinality,"In SQL, it refers to the uniqueness of data in a specific column of a table. In other words - the more cardinality there is, the less data duplication there is."
+Many-to-many,"A many-to-many relationship is at ype of cardinality that refers to a relationship between two tables in a database. In an RDBMS, these types of relationships are implemented by means of an associative table."
+One-to-many,"With a one-to-many relationship - if you have two elements A&B, an element of A may be linked to many elements of B, but B is only linked to one element of A."
+JOIN,A clause used to slect data from more than one data table at a time
+(INNER) JOIN,Returns records that have matching values in both tables (is the default for JOINs)
+LEFT (OUTER) JOIN,"Returns all records from the left table, and the matched records from the right table"
+RIGHT(OUTER) JOIN,"Returns all the records from the right table, and the matched records from the left table"
+FULL (OUTER) JOIN,Returns all records when there is am atch in either left or right table
+INSERT,A clause used to add a row into a table
+UPDATE,"A clasue used to update an existing row. Remember to use a WHERE statement along wiht it, otherwise the update will apply to every row in the table."
+DELETE,A claused used to delete a row from the database. Remember the WHERE!
+Constraints,SQL constraints are used to specify rules for the data in a table. 
+Foreign Key Constraint,A type of constraing that is used to prevent actions that would destroy links between tables
+Unique (Constraint),Verifies values in the column are unique among all rows in the table. 
+Not Null (Constraint),Verifies all rows have a value fo this column and is never null.
+"Default ""value"" (constraint)","If a row is entered and this column isn't given a value, it gets the default value"
+Check (constraint),"Verifies that the value in the column meets a programmer-defined condition, such as age>=18."
+Transaction,"A ""unit"" of work that is performed against a database. A ""unit"" can be a sequence of several statements completed in a logical order. By putting everything in a single transaction block, you can ensure everything is executed before changes are committed."
+ACID,"An acronym that summs up the properties of transactions:atomicity, consistency, isolation, durability"
+Atomicity,Ensuring all operations are completed successfully
+Consistency,"Ensuring database properly changes states upon a successfully committed transaction - in other words, all statements in the transaction happens at the same time"
+Isolation,Enables transactions to operate independently of and transparently to each other
+Durability,Ensures that the result or effect of a committed transaction persists in case of a system failure
+Data Modeling,The process of creating a visual representation of either a whole information system or parts of it to communicate connections between data points and structures.
+Logical Design,The process of creating a design that follows the rules of the relational data model
+Physical Design,"The process of adjusting the logical design to meet requirements related to performance, ease of use, and hardware/software RDBMS limitations. This includes defining the data types for each column and how much room to use to store the data."
+Physical Implementation,"The process of creating tables and supporting objects such as sequences, indexes, views + aliases, and granting user access on the tables and columns. AKA, where your design is translated from an idea on paper/drawing to actual code. "
+Parent Table,A table whose primary key is matched by foreign keys in one or more other tables
+Dependent Table,A table whose rows are dependent on an existing row on another table. The foreign key of a dependent matches the entire primary key of its parent. 
+Ordinality,(Comes with cardinality) Ordinality is the miminum number of times an instance in one entity can be associated with an instance in the related entity.
+Normalization,A logical database design technique which organizes tables in a manner that reduces redundancy and dependency of data. 
+1NF,Each table cell should contain a single value. Each record is unique.
+2NF,Table must be in 1NF. There should be a single column primary key that is not functionally dependent on any subset of candidate key relation. (You probably had to split your origina table into two and assign a primary key that connects the data between them.)
+3NF,Table must be in 2NF. There must be no transitive functional dependencies. (You'll likley have to further split up your tables and introduce a foreign key.)
+Transitive Functional Dependency,"This is when, if changing a non-key column, could cause any other non-key column to change."
+Data Integrity,"The overall accuracy, completeness, and completeness of data, maintained by a collection of processes, rules, and standards implemented during the design phase. It can also refer to the safety of data in regard to regulatory compliance & security.)"
+CREATE TABLE,A DDL SQL statement that adds new tables to a database
+DROP TABLE,An SQL statement that deletes a table from the database
+ALTER TABLE,An SQL statement that makes changes to an existing table.
+Spring Framenwork,"A useful tool that provides infrastructural support at the application level. It focuses on the ""plumbing"" of enterprise applications so that teams can focus on application-level business logic, without unnecessary ties to specific deployment environments."
+JdbcTemplate,The central framework class in Spring Data JDBC that manages all the database communication & exception handling
+Jdbc Driver,"A driver acts as an intermediary between the database and teh API. Each database has its own driver. It's basically a ""translater"" between java and the target database"
+Connection String,"Contains key information about the database and follows a standard URL format: protocol, driver name, server name, port number, database name"
+SQL Statement Parameters,A way to use placeholders in SQL statements sent through jdbcTemplate so that actual values can be inserted later. 
+SqlRowSet,The object that is returned from the database when an SQL statement is passed in with jdbcTemplate.queryForRowSet();
+queryForRowSet(),A jdbcTemplate method to excecute a query for a SqlRowSet
+queryForObject(),A jdbcTemplate method to execute a query for a result object
+update(),A jdbcTemplate method to execute a single SQL update operation (INSERT/UPDATE/DELETE)
+ILIKE,An SQL keyword that is used in a search and ignores cases and permits the use of wildcards (%)
+CRUD,"Very important concept that stands for Create, Read, Update, Delete. They are the four basic operations of persistence logic as code that interacts with and manipulates data"
+Design Pattern,"In java, a design pattern is a well-described solution to a common software problem. "
+DAO,"Data Access Object. A design pattern with 3 components: Model, DAO interface, DAO interface implementation. We like this because it helps with encapsulation, loose coupling, and DRY."
+Model (DAO),"A simple POJO (plain old java object). Could be a table in a database. You'll want your standard constructors, getters, and setters."
+DAO Interface,This is an abstract class that declares the persistence logic (CRUD operations) you want fo reach Model object
+DAO Interface Implementation,This is the concrete class that implements the CRUD operations declared in the interface. 
+Integration testing,"A broad category of tests that validate the integration between units of code, or between code and outside dependencies such as a database or network resources.  Similar to unit tests and should be - reliable/repeatable, independent, and obvious when it fails."
+setAutoCommit(),"By default, when SQL is run using JdbcTemplate, changes are automatically commited. You can turn this off using this method."
+rollback(),Use this to ROLLBACK any changes.
+SQL Injection,"An SQL Injection Attack is when a malicious attacker passes a special value into your paplication that is executed by the database, causing it to retrieve or delete information tey should not have access to. "
+Data Hashing,Hiding original data by scrambling it. A Cryptographic Hash Function is used to scramble it in such a way that the data is irrecoverable.
+Encryption,"Scrambling data in a way that can be reversible, but only by authorized parties. This is doen by using an encryption algorithm that takes a value and scrambles it using some key."
+Dictionary Attack,A method of breaking into a password protected resource by systematically trying every word available. 
+Rainbow Table,A precomputed table that contains the password hash value of a given password & hash.
+Salt,"A salt is a fixed length, cryptographically strong random value."
+Salting,To add a salt to a password to make it stronger. 
+Adaptive Hashing,"Regular hashing, but making it take longer by increasing its work factor."
+Work Factor,A setting on an adaptive hashing function that tells the function how many cycles of the function to run.
+Symmetric Key Encryption,"When data is locked using a shared passphrase or key. A weakness is that if the key is discovered by an outside entity, they now have access to the data."
+Asymmetric Key Encryption (asymmetric cryptography),"When data is locked using pairs of keys: public keys, which can be disseminated widely, and private keys, which are known only to the owner. In this case, a public key is used to encrypt the data, but only the private key can be used to decrypt it."
+Server,A sample or software or hardware that serves a specific service to its clients. (Responds to a request)
+Client,A user program that connects to a server to access a service. (Initiates or makes the request)
+Uniform Resource Locator (URL),"A line of text that represents the location of an online resource, like a website or document. The pieces are: protocol, domain name, port, path."
+Protocol (URL),Determines how your browser communicates with a web server. Usually HTTP or HTTPS
+HTTP,Hypertext Transfer Protocol
+HTTPS,HTTP Secure. It's HTTP but with encrypted data.
+Domain Name (URL),"A unique reference to a website on the internet. Consists of a subdomain, domain, and TLD, although you may not always see a subdomain."
+Subdomain,Identifies a part of the main domain and generally responsible for subsets of data for the larger domain. ex: maps.google.com
+Domain,Typically identifies the company or other type of organization. ex: maps.google.com
+TLD,"Top Level Domain, a higher level category in which the domain belongs ex: maps.google.com"
+Port (URL),"Not usually seen in the URL - each protocol has a default port they can use. (HTTP -> 80, HTTPS -> 443). A port number is a way to identify a specific process to which an internet or other network message is to be forwarded when it arrives at a server."
+Path (URL),Identifies the resource requested from the domain.
+IP Address (Internet Protocol Address),"Identifies the exact location of a device on the internet. (A domain name is useful for humans, but isn't specific enough for computers.)"
+DNS (Domain Name System),A network of servers that translates domain names into IP addresses.
+HTTP Communication,"Consists of an HTTP Request by a client for a specific resource, and an HTTP Response from a server. The request/response message consists of 2 parts: a head and body."
+Head (HTTP Communication),"Contains basic information about the request/response (analogous to a shipping label, or a ""FRAGILE"" sticker)"
+Body (HTTP Communication),Contains the information or data - aka payload - being sent back & forth. (analogous to what is inside a box that is being shipped.)
+HTTP Request,Begins with the HTTP method (GET/POST/DELETE/etc) and the URL for the resource. A body may be included if any info needs to be sent for the request to be fulfilled.
+HTTP Response,"Begins with text indicatin the success/failure of the request (aka status code.) If any additional information was requested, it may be contianed in the body."
+Header,"Part of an HTTP message that contains additional information needed to process a request or response. This includes: size/format of data, encoding info, auth info, etc."
+API (Application Programming Interface),An interface that allows transfer of data between different computer programs.
+Web API,An API that is accessible on the internet.
+API Endpoint,The URL that is used to access the API. Each endpoint has a portocol indicating what inputs are required and what information can be returned. 
+JSON (JavaScript Object Notation),A data format often seen as a respnose from an API call. JSON is a block of key-value pairs wrapped by curly brackets. JSON is a data-interchange format that's language independent and human-readable.
+RestTemplate,"The central Spring class for client-side HTTP access. It facilitates the execution of HTTP methods such as GET/POST/PUT/DELETE. In other words, it handles the making of requests to a web API, as well as the reading of responses from the server.  It will also alert an application of any errors by throwing a Java exception rather than returning an HTTP status code that isn't 2xx."
+ResponseEntity,"ResponseEntity is a class that represents the whole HTTP response: status code, headers, and body. RestTemplate's getForEntity returns a ResponseEntity object, from which you can extract the data you want."
+Deserialization,Deserialization is taking the JSON returned from the server from a String into an object or an array of objects. (RestTemplate CANNOT parse into a collection!)
+Serialization,Serialization is converting a Java object into a String in JSON format.
+GET (HTTP Method),"Method used to ""read"" or fetch information on a server."
+POST (HTTP Method),"Method used to create a new object in the server. Because a new object was created, the new object is returned with any additional attributes, like a serialized object id."
+PUT (HTTP Method),"Method used to replace an existing object in the server, with what you sent. Because you already have the info (you sent it), it doesnt' send anything back. "
+DELETE (HTTP Method),Method used to delete an object in the server.
+HttpEntity,"A Spring class that represents an HTTP request or response entity, and consists of a header & body. The data you want to upload (like when you send a POST request) is the ""body."" (Side note: ResponseEntity extends the HttpEntity class - it includes everything in HttpEntity and adds the response code from the server.) "
+HttpHeaders,"A Spring class that represents HTTP header. It is a parameter accepted by HttpEntity to complete the ""package"" headed to the server - the request needs a both a header and a body, so this is the ""header."""
+Network Error (Network I/O Issue),"Any error that prevents a resource from coming back from the server, such as a lost connection or failed DNS lookup."
+ResourceAccessException,The exception thrown by RestTemplate to alert the application of a network i/o problem.
+RestClientResponseException,An exception thrown by RestTemplate to alert the application that it received a response status code in the 400-599 range.
+4xx client errors,Returned when the error seems to have been caused by the client.
+5xx server errors,"Returned when the server fails to fulfill a request, where the server is aware of the error."
+getRawStatusCode(),A RestClientResponseException method that returns the raw HTTP status code.
+getStatusText(),A RestClientResponseException method that returns the HTTP status text
+getResponseHeaders(),A RestClientResponseException method that returns the HTTP response headers (may be null)
+getResponseBodyAsString(),A RestClientResponseException method that returns the HTTP response body as a String (may be null)
+Consume/Consuming (an API),This means to engage with an API. (Done using RestTemplate to make HTTP requests.)
+MVC Pattern (Model-View-Controller),"An architectural pattern that specifies that an application consists of 3 parts: Model (backend), View (frontend), and Controller (the ""brains""). It helps break up the frontend and backend code into separate components. This makes the code easier to maintain/manage, and changes to either side can be made without interfering with each other."
+Model (MVC),"Represents an object or POJO carrying data. It only contains pure application data and no logic describing how to present the data to a user. It can contain logic to update the controller if its data changes, as well as any validation rules."
+View (MVC),"Represents teh visualization of the data that the model contains. It presents the model's data ot the user. It knows how to access the model's data, but it does not know what this data means or what the user can do to manipulate it."
+Controller (MVC),"Exists between the Model & View classes and keep them separate. It controls the data flow into the Model object, and updates the View whenever data changes."
+Spring MVC,"The most popular MVC Framework for Java, and is part of the Spring Framework. It implements all of the basic features of a core spring framework, like Inversion of Control (IoC) and Dependency Injection (DI)."
+Spring Boot,A product that can be used to build stand-alone and production-ready Spring applications. You can get started with minimum configurations and it's basically ready to run right out of the box.
+@RestController,"An annotation that is used to decorate a Controller class. This lets Spring know that the class is a controller. (Otherwise, Spring won't be able to find the class to pass web requests through to the server.)"
+Handler Method,A method inside a Controller class that executes a request based on the URL specified by @RequestMapping.
+@RequestMapping,An annotation that is used to decorate a handler method. It is used to map web requests (at a given URL) to the appropriate Controller method. It can also be used at the class level to specify the path the class and/or method should take. 
+Content Negotiation,"An HTTP mechanism that is used for serving different formats of a resource at the same URL. The server can send back the requested info in many different formats with the same endpoint. The client specifies which format it can understand in the 'accept' header of the HTTP request - JSON is the default format for Spring MVC. Spring MVC provides this capability right out of the box, so we dont' have to worry about it."
+Model Binding,"A mechanism in which various variables/objects are ""parameterized"" in a controller handler method. "
+Query String,"A part of a URL that assigns values to specified parameters. It often follows a ""?"" and specifies what information you want back. (ex: http://localhost:8080/tasks?filter=completed)"
+@RequestParam,"The annotation used inside a handler method to specify the query string. You can set multiple request parameters, or make them optional by setting a default value."
+Request Path,It is possible to find a specific piece of data by routing a URL directly to the resource. (ex: http://localhost:8080/tasks/2)
+@PathVariable,"The annotation used inside a handler method to specify the request path the resource can be found. To use this, you'll want to annotate the method with something like @RequestMapping(path = ""tasks/{id}"") then decorate the parameter @PathVariable int id. The name of the parameter being passed through must be the same as what's in the brackets in the RequestMapping path."
+@RequestBody,"If you want to POST or PUT an object, you can send an entire Java object. Otherwise, you'll have to take each attribute and send it using @RequestParam which would take a long time. "
+REST,"REpresentational State Transfer = an architectural style for providing standards between computer systems on teh web, making it easier for system to communicate with each other. "
+RESTful (REST-compliant),"A way to describe systems that are characterized by how they are stateless, as well as how they separate the concerns of client & server. "
+REST API,"REST APIs are based on the concept of resources. Addresses (URLs) and actions (HTTP methods) both relate to those resources. When you're building a server-side API, you'll also want it to return status codes to inform the frontend application if any errors occurred, or if everything went OK."
+Resource,"An object with a type, associated data, relationships to other methods, and a set of methods that operate on it. Resources are the basic building block of RESTful service. It's similar to an instance of a POJO, but resources only have a few standards methods that relate to the HTTP GET, POST, PUT, DELETEs. A POJO can have many different methods. Each resource usually has its own URL, and you can perform CRUD operations through the URL depending on which HTTP method is used. (ex: If the goal is to access all the tasks, where a task is a resource, the url may end in /tasks. If the goal is to access a single task/resource, the url may end in /tasks/{id}."
+HTTP Status Code,A code issued by a server in response to a client request. 
+@ResponseStatus,An annotation that can be used to decorate a Controller method to control the HTTP Status Code returned by a server. 
+ResponseStatusException,A type of exception you can throw in a Controller handler method. Its constructor takes in the status code you want to send in the response.
+Data Validation,"Check the accuracy & quality of source data before using, importing, or otherwise processing data. To balidate in Java, you can use Bean Validations. It comes pre-built with Spring and is a Java standard."
+Bean Validation,Bean validation works by defining constraints to the fields of a class by decorating it with certain annotations. These would be in the model class and can even include messages. 
+@NotBlank,An example of a bean validation that indicates the model attribute must not blank.
+@NotNull,Another example of a bean validation. It says the attribute can't be null.
+@Valid,"The annotation you need to use in the handler method in your controller to make the data validation take place. It signals to Spring to check the constraints laid out in the instance of the Model object referenced by the RequestBody. (Otherwise, Spring doesn't know it needs to be validated.)"
+Dependency Injection (DI),"A design principle that makes you application easier to develop, more loosely coupled, and easier to test. If a class creates an instance of another class using the new operator, it is considered to be a hard dependency. The class with the dependency cannot be used or tested independently. Spring has the ability to manage dependency injections by creating instance of required classes and ""injecting"" itinto a new object, rather than the class requiring the dependency creating its own instance of the object. "
+Spring IoC Container,"Spring Ioc Container is the core of Spring Framework. It creates the objects, configures and assembles their dependencies, and manages their entire life cycle. The Container uses Dependency Injection to manage the components that make up the application. It gets the information about the objects from a configuration file (XML) or Java Code or Java Annotations + POJO class. These objects are called ""beans."" Since the controlling of Java objects and their lifecycle is not done by the developers, this concept is called Inversion of Control. **Not covered in LMS"
+@Component,"The annotation you need to use at the class level to let Spring know that it is needed as a dependency in another class. (In our case, DAO or possibly Model classes.)"
+Authentication,The process of validating users that they are who they claim to be. (ex. username + password)
+Authorization,The process of giving a user permission to access a specific resource or function. (ex. user vs administrator)
+Knowledge Factor,"A form of authentication - something the user knows. (ex. passwords, PIN, etc)"
+Owndership Factor,"A form of authentication - something the user has. (ex. phycical tokens, cell # with 2FA)"
+Inherence Factors,A form of authentication - something the user is or does. (ex. fingerprint or voice scan)
+JSON Web Token (JWT),"An open standard that defines a compact and self0contained way for securely transmitting information between parties as a JSON object. They're usually used for authorization in APIs and other HTTP requests. They have three parts: a header, payload, and signature."
+Header (JWT),Contains metadata about the type of token and the cryptographic algorithms used to secure its contents.
+Payload (JWT),"Contains verifiable security statements, such as the identity of the user and the permissions the are allowed (aka claims)"
+Signature (JWT),Used to validate that the token is trustworthy and has not been tampered with.
+Claim (JWT),"Statements about an entity, typically a user. They might include things like ""name"", ""role"", ""iat"", ""exp"""
+@PreAuthorize,An annotation that can be used at the class or method level to indicate that a specific endpoint must have the proper authorization to access the resource.
+Spring Expression Language (SpEL),"An expression language that supports querying and manipulating classes at runtime. These expression can follow the @PreAuthorize annotation to make it more specific. (ex. ""isAuthenticated()"", ""permitAll"", ""hasRole('ADMIN')"", etc)"
+Principal,A class that represents the current logged-in user. It's a special interface that Spring turns into a concrete object for us to use (I THINK - I couldn't really figure this one out...)
