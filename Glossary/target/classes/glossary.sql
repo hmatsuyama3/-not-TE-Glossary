@@ -17,17 +17,18 @@ CONSTRAINT fk_unit
 	FOREIGN KEY(unit_id)
 	REFERENCES unit(unit_id));
 
-COPY terms(term, definition)
-FROM 'C:\Users\Student\Desktop\Side Projects\(not) TE Glossary\src\main\resources\Mod2_term_table.csv'
-DELIMITER ','
-CSV HEADER;
+--Could not get COPY queries to work for some reason but was able to import the csv files directly to add data
+--COPY terms(term, definition)
+--FROM 'C:\Users\hxm10\Documents\GitHub\-not-TE-Glossary\Glossary\src\main\resources\Mod2_term_table.csv'
+--DELIMITER ','
+--CSV HEADER;
 
-COPY unit(unit)
-FROM 'C:\Users\Student\Desktop\Side Projects\(not) TE Glossary\src\main\resources\Mod2_unit_table.csv'
-DELIMITER ','
-CSV HEADER;
+--COPY unit(unit)
+--FROM 'C:\Users\hxm10\Documents\GitHub\-not-TE-Glossary\Glossary\src\main\resources\Mod2_unit_table.csv'
+--DELIMITER ','
+--CSV HEADER;
 
-COPY term_unit(term_id, unit_id)
-FROM 'C:\Users\Student\Desktop\Side Projects\(not) TE Glossary\src\main\resources\Mod2_term_unit_table.csv'
-DELIMITER ','
-CSV HEADER;
+--COPY term_unit(term_id, unit_id)
+--FROM 'C:\Users\hxm10\Documents\GitHub\-not-TE-Glossary\Glossary\src\main\resources\Mod2_term_unit_table.csv'
+--DELIMITER ','
+--CSV HEADER;
